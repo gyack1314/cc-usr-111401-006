@@ -1,0 +1,5 @@
+# 资料与既有接口约定
+
+对象使用AESGCM认证加密，AAD为规范JSON的tenant和object_id。每对象随机256位数据密钥，key_service.py 使用另一个AESGCM主密钥包装，包装AAD还含tenant、object_id及数据正文摘要。主密钥只在服务实例内存及未跟踪的运行目录存在；公开资料仅含非秘密key_id。rotate不改变正文密文、nonce与AAD，只生成新的wrapped_key。服务支持按操作ID返回相同回执和可控故障。现有 envelope.py 只实现单对象首次封装和读回。
+
+所有资料均为合成，字段、身份及状态按本文解释。源码中的 inspect 入口只读取并核对现有基础接口；不会建立高级查询或仓库管理流程。

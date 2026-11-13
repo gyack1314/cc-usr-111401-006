@@ -1,0 +1,38 @@
+{
+  "objects": [
+    {
+      "object_id": "doc-a",
+      "tenant": "alpha",
+      "content": "共享文档的合成正文"
+    },
+    {
+      "object_id": "doc-b",
+      "tenant": "alpha",
+      "content": "修订记录"
+    },
+    {
+      "object_id": "doc-c",
+      "tenant": "beta",
+      "content": "另一租户"
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "old",
+      "objects": [
+        "doc-a"
+      ]
+    },
+    {
+      "id": "head",
+      "objects": [
+        "doc-a",
+        "doc-b"
+      ]
+    }
+  ],
+  "keys": [
+    "master-1",
+    "master-2"
+  ]
+}
